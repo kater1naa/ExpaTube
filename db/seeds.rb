@@ -24,13 +24,20 @@ user10 = User.create!(first_name: "David", last_name: "Julian", email: "user10@e
 
 casual = Category.create!(name: "Casual Meetups")
 sports = Category.create!(name: "Sports & Fitness")
- # outdoor = Category.create!(name: "Outdoor Activities")
- # arts = Category.create!(name: "Arts & Entertainment")
- # adventure = Category.create!(name: "Travel & Adventure")
- # family = Category.create!(name: "Family & Parenting")
- # hobbies = Category.create!(name: "Crafts & Hobbies")
- # concerts = Category.create!(name: "Concerts")
- # meetups = Category.create!(name: "Other Meetups")
+# outdoor =
+Category.create!(name: "Outdoor Activities")
+# arts =
+Category.create!(name: "Arts & Entertainment")
+# adventure =
+Category.create!(name: "Travel & Adventure")
+# family =
+Category.create!(name: "Family & Parenting")
+# hobbies =
+Category.create!(name: "Crafts & Hobbies")
+# concerts =
+Category.create!(name: "Concerts")
+# meetups =
+Category.create!(name: "Other Meetups")
 
  Event.create!(title: "Chill & Connect", user: user1, address: "Rheinlanddamm 200 44139 Dortmund", description: "The perfect setting for those seeking a relaxed and friendly environment to meet new people.", category: casual, limit: 15)
 
