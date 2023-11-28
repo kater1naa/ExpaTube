@@ -1,4 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<%= link_to "Sports & Fitness", events_path(category: category.name) %>
+<h2>Pick your interest</h2>
+<% @categories.each do |category| %>
+  <%= link_to events_path(category: category.name) do %>
+   <%# card with picture %>
+   <p><%= category.name %></p>
+  <% end %>
+<% end %>
