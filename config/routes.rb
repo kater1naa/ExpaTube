@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "categories#index"
+
+  root to: "pages#home"
+  resources :events, only: %i[index]
 
   get "up" => "rails/health#show", as: :rails_health_check
 
