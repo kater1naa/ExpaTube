@@ -1,0 +1,7 @@
+<h2>Pick an event</h2>
+<% @events.each do |event| %>
+  <%= link_to event_path(event) do %>
+   <%# card with picture %>
+   <p><%= event.title %></p>
+  <% end %>
+<% end %>
