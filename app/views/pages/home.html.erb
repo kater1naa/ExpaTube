@@ -1,18 +1,39 @@
+<div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/images/outdoor1.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center;">
+  <div class="container">
+    <img src="/app/assets/images/outdoor1.jpg" alt="Logo">
+    <h1 style="color: white; text-align: center;">Your hub for expat adventures. Attend or create your event. <br> Make friends for a lifetime.</h1>
+  </div>
+</div>
+
 <div class="container">
-  <h2>Pick your interest</h2>
+  <h2 class="text-center ">Pick your interest</h2>
   <div class="row">
-    <% @categories.each do |category| %>
-      <div class="col-lg-6 mb-4">
-        <%= link_to events_path(category: category.name) do %>
-          <div class="card bg-dark text-white" style="width: 680px; height: 280px;">
-            <!-- Replace "..." with the actual path to your image -->
-            <img src="..." class="card-img" alt="Category Image" style="width: 100%; height: 100%;">
-            <div class="card-img-overlay">
-              <h5 class="card-title"><%= category.name %></h5>
+    <% @categories.each_with_index do |category, index| %>
+      <% if index == @categories.length - 1 %>
+        <!-- For the last card, make it double size -->
+        <div class="col-12 mb-4 d-flex">
+          <%= link_to events_path(category: category.name) do %>
+            <div class="card" style="height: 300px; width: 1310px; border-radius: 10px;">
+              <img src="<%= category.image_url || '/mnt/data/pexels-sebastian-palomino-1955134.jpg' %>" class="card-img" alt="<%= category.name %> Image" style="width: 100%; height: 100%; object-fit: cover;">
+              <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                <h5 class="card-title text-center" style="font-size: 24px; font-weight: bold; color: white;"><%= category.name %></h5>
+              </div>
             </div>
-          </div>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
+      <% else %>
+        <!-- For other cards, use regular size -->
+        <div class="col-lg-6 mb-4 d-flex">
+          <%= link_to events_path(category: category.name) do %>
+            <div class="card" style="height: 300px; width: 650px; border-radius: 10px;">
+              <img src="<%= category.image_url || '/mnt/data/pexels-sebastian-palomino-1955134.jpg' %>" class="card-img" alt="<%= category.name %> Image" style="width: 100%; height: 100%; object-fit: cover;">
+              <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                <h5 class="card-title text-center" style="font-size: 24px; font-weight: bold; color: white;"><%= category.name %></h5>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
