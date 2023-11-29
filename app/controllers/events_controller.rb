@@ -7,6 +7,9 @@ class EventsController < ApplicationController
       category = Category.find_by(name: params[:category])
       @events = @events.where(category_id: category.id)
     end
-    raise
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
 end
