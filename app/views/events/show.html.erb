@@ -1,0 +1,12 @@
+<h2><%= @event.title %></h2>
+<div>
+  <%# Display event details such as date, time, location, etc. %>
+  <p><strong>Date:</strong> <%= @event.starts_at.strftime("%B %e, %Y") %></p>
+  <p><strong>Time:</strong> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
+  <p><strong>Location:</strong> <%= @event.address %></p>
+  <%# Display event description %>
+  <p><strong>Description:</strong> <%= @event.description %></p>
+  <%# Display event creator information %>
+  <p><strong>Created by:</strong> <%= @creator.first_name%> <%= @creator.last_name %></p>
+  <%# link_to "Join event", events_path % %>
+</div>
