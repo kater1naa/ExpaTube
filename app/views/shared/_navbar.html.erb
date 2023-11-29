@@ -30,7 +30,9 @@
           <li class="nav-item">
             <%= link_to "About", "#", class: "nav-link" %>
           </li>
-          <a class="btn btn-primary" href="#" role="button">Create Event</a>
+          <li class="nav-item">
+            <%= link_to "Create Event", new_event_path, class: "btn btn-primary" %>
+          </li>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
