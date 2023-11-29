@@ -1,0 +1,19 @@
+<h2>Create a New Event</h2>
+
+<%= simple_form_for @event do |form| %>
+  <%= form.input :title %>
+
+  <%= form.association :category, collection: Category.all, prompt: 'Select a category' %>
+
+  <%= form.input :starts_at, as: :datetime, html5: true %>
+
+  <%= form.input :ends_at, as: :datetime, html5: true %>
+
+  <%= form.input :address %>
+
+  <%= form.input :description, as: :text %>
+
+  <%= form.input :limit %>
+
+  <%= form.button :submit, 'Create Event' %>
+<% end %>
