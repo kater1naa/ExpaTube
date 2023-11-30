@@ -1,8 +1,7 @@
 class AttendancesController < ApplicationController
-  before_action :authenticate_user! # Add this line if you want to ensure that only authenticated users can access these actions
-
+  before_action :authenticate_user! # Add this line if you want to ensure that only authenticated users can access these
   def index
-    @attendances = current_user.attendances
+    @attendances = current_user.attendances.includes(:event)
   end
 
   def create

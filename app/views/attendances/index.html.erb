@@ -1,4 +1,5 @@
-<p><%= @attendances.each do |attendance|%>
-<%= attendance.event.title %>
-<% end %>
-</p>
+<div class="wraper">
+  <% @attendances.each do |attendance|%>
+  <%= attendance.event.title %>
+  <% end %>
+</div>
