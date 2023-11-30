@@ -1,5 +1,14 @@
 <div class="wraper">
-  <% @attendances.each do |attendance|%>
-  <%= attendance.event.title %>
-  <% end %>
+    <div class="container">
+      <h5>My events</h5>
+      <ul class="list-group list-group-flush">
+      <li><% @attendances.each do |attendance|%>
+      <%= attendance.event.title %>
+      <% end %> </li>
+      </ul>
+    </div>
+
+    <div class="contrainer">
+      <h5>My hosted events</h5>
+    </div>
 </div>
