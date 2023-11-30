@@ -15,8 +15,16 @@
   <%= render "shared/navbar" %>
   <%= render "shared/flashes" %>
    <!-- Flash messages -->
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%
+=begin%>
+ <p class="notice"><%= notice %></p>
+<%
+=end%>
+  <%
+=begin%>
+ <p class="alert"><%= alert %></p>
+<%
+=end%>
     <%= yield %>
     <%= render "shared/footer" %>
   </body>
