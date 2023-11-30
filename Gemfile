@@ -32,6 +32,9 @@ gem "jbuilder"
 # ISTALLATION OF GEM
 gem "devise"
 
+# GEOCODING GEM
+gem "geocoder"
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
