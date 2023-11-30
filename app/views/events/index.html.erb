@@ -1,3 +1,4 @@
+<div class="wraper">
 <h2>Pick an event</h2>
 <% @events.each do |event| %>
   <%= link_to event_path(event) do %>
@@ -5,3 +6,4 @@
    <p><%= event.title %></p>
   <% end %>
 <% end %>
+</div>
