@@ -1,4 +1,4 @@
-<div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://f.roocdn.com/images/menus/70997/header-image.jpg?width=740&height=320&auto=webp&format=jpg&fit=crop&v=1531393618'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center; margin-top: 0; margin-bottom: 20px;">
+<div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center; margin-top: 0; margin-bottom: 20px;">
   <div class="container">
     <h1 style="color: white; text-align: center;">Your hub for expat adventures. Attend or create your event. <br> Make friends for a lifetime.</h1>
   </div>
@@ -9,8 +9,8 @@
       <% if index == @categories.length - 1 %>
         <div class="col-12 mb-4 d-flex">
           <%= link_to events_path(category: category.name) do %>
-            <div class="card" style="height: 300px; width: 1310px; border-radius: 20px; overflow: hidden;">
-              <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= category.image_url || 'https://f.roocdn.com/images/menus/70997/header-image.jpg' %>'); background-size: cover; background-position: center; border-radius: 10px;">
+            <div class="card" style="height: 300px; width: 1310px; border-radius: 15px; overflow: hidden;">
+              <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= category.image_url || 'https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg' %>'); background-size: cover; background-position: center; border-radius: 10px;">
                 <div class="card-img-overlay d-flex justify-content-center align-items-center">
                   <h5 class="card-title text-center" style="font-size: 36px; font-weight: bold; color: white;"><%= category.name %></h5>
                 </div>
@@ -21,8 +21,8 @@
       <% else %>
         <div class="col-lg-6 mb-4 d-flex">
           <%= link_to events_path(category: category.name) do %>
-            <div class="card" style="height: 300px; width: 650px; border-radius: 20px; overflow: hidden;">
-              <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= category.image_url || 'https://f.roocdn.com/images/menus/70997/header-image.jpg' %>'); background-size: cover; background-position: center; border-radius: 10px;">
+            <div class="card" style="height: 300px; width: 650px; border-radius: 15px; overflow: hidden;">
+              <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= category.image_url || 'https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg' %>'); background-size: cover; background-position: center; border-radius: 10px;">
                 <div class="card-img-overlay d-flex justify-content-center align-items-center">
                   <h5 class="card-title text-center" style="font-size: 36px; font-weight: bold; color: white;"><%= category.name %></h5>
                 </div>
