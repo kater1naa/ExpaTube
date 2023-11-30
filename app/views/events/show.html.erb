@@ -1,19 +1,35 @@
-<div class="wraper">
-<h2><%= @event.title %></h2>
-<div>
-  <%# Display event details such as date, time, location, etc. %>
-  <p><strong>Date:</strong> <%= @event.starts_at.strftime("%B %e, %Y") %></p>
-  <p><strong>Time:</strong> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
-  <p><strong>Location:</strong> <%= @event.address %></p>
-    <p><strong>Limit:</strong>  /<%= @event.limit %></p>
-  <%# Display event description %>
-  <p><strong>Description:</strong> <%= @event.description %></p>
-  <%# Display event creator information %>
-  <p><strong>Created by:</strong> <%= @creator.first_name%> <%= @creator.last_name %></p>
-  <%# link_to "Join event", events_path % %>
+<div class="wrapper" style="display: flex; justify-content: space-between;">
+    <div style="width: 60%;"> <!-- Ajusta el ancho según tus preferencias -->
+        <h2><%= @event.title %></h2>
+        <div>
+            <!-- Detalles del evento -->
+            <p><strong>Date:</strong> <%= @event.starts_at.strftime("%B %e, %Y") %></p>
+            <p><strong>Time:</strong> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
+            <p><strong>Location:</strong> <%= @event.address %></p>
+            <p><strong>Limit:</strong> <%= @event.limit %></p>
+
+            <!-- Descripción del evento -->
+            <p><strong>Description:</strong> <%= @event.description %></p>
+
+            <!-- Información del creador del evento -->
+            <p><strong>Created by:</strong> <%= @creator.first_name %> <%= @creator.last_name %></p>
+
+            <!-- Botón para unirse al evento -->
+            <%# link_to "Join event", events_path % %>
+
+            <!-- Contador de asistentes -->
+            <%# Debes agregar el contador de asistentes según tus necesidades %>
+        </div>
+    </div>
+
+    <div style="width: 70%;"> <!-- Ajusta el ancho según tus preferencias -->
+        <!-- Mapa -->
+        <div style="width: 100%; height: 600px;"
+             data-controller="map"
+             data-map-markers-value="<%= @markers.to_json %>"
+             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+    </div>
 </div>
 
-  <%# ADD "JOIN EVENT" ATTENDANCE BUTTON%>
-  <%# HAVE TO ADD ATTENDANCES COUNTER%>
-  <%# HAVE TO ADD MAP %>
-</div>
+
