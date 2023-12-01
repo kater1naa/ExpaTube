@@ -1,14 +1,24 @@
 <div class="wraper">
-    <div class="container">
-      <h5>My events</h5>
+  <div class="container d-flex justify-content-around">
+    <div>
+      <h5>Events I want to attend</h5>
       <ul class="list-group list-group-flush">
-      <li><% @attendances.each do |attendance|%>
-      <%= attendance.event.title %>
-      <% end %> </li>
+        <% @attendances.each do |attendance|%>
+          <li><%= attendance.event.title %></li>
+        <% end %>
       </ul>
     </div>
-
-    <div class="contrainer">
-      <h5>My hosted events</h5>
+    <div>
+      <h5>Events I am hosting</h5>
+      <ul class="list-group list-group-flush">
+        <% @events_as_host.each do |event|%>
+          <li><%= event.title %></li>
+        <% end %>
+      </ul>
     </div>
+    <div>
+      <h5>My Profile</h5>
+      "Stuff about me"
+    </div>
+  </div>
 </div>
