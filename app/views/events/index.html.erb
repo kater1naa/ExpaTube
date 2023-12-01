@@ -6,7 +6,9 @@
             height: 500px; background-position: center; background-repeat: no-repeat; background-size: cover;">
 
     <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        Your hub for expat adventures. Attend or create your event. <br> Make friends for a lifetime.
+        <span style="font-size: 1em;">Chill & Connect</span> <br>
+        <span style="font-size: 0.75em;">The perfect setting for those seeking a relaxed and friendly environment to meet new people.</span> <br>
+        <span style="font-size: 0.50em;">December 9, 2023</span>
     </h1>
 </div>
     </div>
@@ -15,8 +17,10 @@
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701343115/event-picture4_veit55.jpg');
             height: 500px; background-position: center; background-repeat: no-repeat; background-size: cover;">
 
-    <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        Your hub for expat adventures. Attend or create your event. <br> Make friends for a lifetime.
+    <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;"">
+        <span style="font-size: 1em;">Casual Conversations</span> <br>
+        <span style="font-size: 0.75em;">The go-to event for those who appreciate the beauty of unhurried, spontaneous dialogue in a laid-back setting.</span> <br>
+        <span style="font-size: 0.50em;">Düsseldorf</span>
     </h1>
 </div>
     </div>
@@ -25,9 +29,12 @@
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg');
             height: 500px; background-position: center; background-repeat: no-repeat; background-size: cover;">
 
-    <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        Your hub for expat adventures. Attend or create your event. <br> Make friends for a lifetime.
-    </h1>
+<h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+    <span style="font-size: 1em;">Friendly Faces</span> <br>
+    <span style="font-size: 0.75em;">Is your invitation to an event where warm smiles and welcoming personalities set the stage for meaningful connections.</span> <br>
+    <span style="font-size: 0.50em;">Duisburg</span>
+</h1>
+
 </div>
 
     </div>
@@ -45,11 +52,17 @@
 
 <!-- Event Listing -->
 <h2 style="color: black; font-weight: bold; text-align: center;">Casual Meetups</h2>
+<%
+=begin%>
+ <h2 style="color: black; font-weight: bold; text-align: center;"><%= events.title %></h2>
+<%
+=end%>
+
 <div class="container">
   <div class="row">
     <% @events.in_groups_of(2, false).each do |group| %>
       <% group.each do |event| %>
-        <div class="col-md-4" style="padding-bottom: 15px;">
+        <div class="col-md-6" style="padding-bottom: 15px;">
           <%= link_to event_path(event), class: 'text-decoration-none' do %>
             <div class="card" style="border-radius: 10px; overflow: hidden;">
 <div class="card-img-top" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-size: cover; background-position: center;"></div>
@@ -65,14 +78,15 @@
                 <h5 class="card-title" style="color: black; font-weight: bold; text-align: center;"><%= event.title %></h5>
                 <div class="text-center">
                 </div>
-                <div class="d-flex justify-content-between mt-2">
-                  <%= event.starts_at.strftime("%Y-%m-%d %H:%M") %>
+                <div class="d-flex justify-content-between mt-6" style="flex-wrap: wrap;">
+                  <p style="margin-bottom: 1rem;"> <strong>Date:</strong> <%= event.starts_at.strftime("%B %e, %Y") %> </p>
+                  <p style="margin-bottom: 1rem;"> <strong>Time:</strong> <%= event.starts_at.strftime("%l:%M %p") %> </p>
+                  <p style="margin-bottom: 1rem;"> <strong>Location:</strong> <%= event.address %> </p>
+                  <p style="margin-bottom: 1rem;"> <strong>Free slots:</strong> <%= event.limit %> </p>
+                  <p style="margin-bottom: 1rem;"> <strong>Description:</strong> <%= event.description %> </p>
                   <%
 =begin%>
- <%= @event.address || "No address provided" %>
-                  <%= @creator.first_name%> <%= @creator.last_name %>
-                  <%= @event.description %>
-                  <%= @event.limit %>
+ <p><strong>Created by:</strong> <%= creator.first_name%> <%= creator.last_name %></p>
 <%
 =end%>
                 </div>
@@ -84,20 +98,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-
-<%
-=begin%>
-
-<h2>Pick an event</h2>
-<% @events.each do |event| %>
-  <%= link_to event_path(event) do %>
-   <%# card with picture %>
-   <p><%= event.title %></p>
-  <% end %>
-<% end %>
-<%
-=end%>
