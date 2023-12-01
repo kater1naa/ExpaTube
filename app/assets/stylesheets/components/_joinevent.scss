@@ -1,0 +1,18 @@
+.join-event-button {
+  background-color: #FFD700; // Golden color
+  color: black; // Text color
+  padding: 10px 20px; // Padding inside the button
+  border: none; // No border
+  text-transform: uppercase; // Uppercase text
+  font-weight: bold; // Bold text
+  border-radius: 5px; // Rounded corners
+  text-decoration: none; // No underline on text
+  display: inline-block; // Allows setting dimensions
+  margin: 10px; // Space around the button
+
+  &:hover {
+    background-color: darken(#FFD700, 10%); // Darken the button color on hover
+    cursor: pointer; // Change the cursor to signify a clickable item
+  }
+}
+
