@@ -1,6 +1,7 @@
-User.destroy_all
-Category.destroy_all
+Attendance.destroy_all
 Event.destroy_all
+Category.destroy_all
+User.destroy_all
 
 user1 = User.create!(first_name: "Katerina", last_name: "Mastrogianni", email: "user1@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Katerina, and I find joy in the little things. Whether it's experimenting with new recipes in the kitchen, getting lost in a good book, or simply taking leisurely walks, I believe in savoring the beauty of ordinary moments.", avatar: "avatar.jpg")
 
