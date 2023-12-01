@@ -9,7 +9,8 @@
 
 .navbar-lewagon .navbar-brand img {
   height: 30px;
-  width: 92px;
+  width: 110px;
+  padding-left: 14px;
 }
 
 .nav-link {
@@ -30,5 +31,9 @@
 }
 
 #search_query {
-  width: 400px;
+  width: 420px;
+}
+
+.form-control {
+  border-radius: 0;
 }
