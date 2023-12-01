@@ -49,14 +49,20 @@
   </button>
 </div>
 
-
-<!-- Event Listing -->
-<h2 style="color: black; font-weight: bold; text-align: center;">Casual Meetups</h2>
-<%
-=begin%>
- <h2 style="color: black; font-weight: bold; text-align: center;"><%= events.title %></h2>
-<%
-=end%>
+<%# Group events by category %>
+<% @events.group_by(&:category).each do |category, events| %>
+  <% if category %>
+    <h2 style="color: black; font-weight: bold; text-align: center;"><%= category.name %></h2>
+    <% events.each do |event| %>
+      <%# Output event details here %>
+    <% end %>
+  <% else %>
+    <h2 style="color: black; font-weight: bold; text-align: center;">Uncategorized Events</h2>
+    <% events.each do |event| %>
+      <%# Output event details here %>
+    <% end %>
+  <% end %>
+<% end %>
 
 <div class="container">
   <div class="row">
@@ -65,11 +71,16 @@
         <div class="col-md-6" style="padding-bottom: 15px;">
           <%= link_to event_path(event), class: 'text-decoration-none' do %>
             <div class="card" style="border-radius: 10px; overflow: hidden;">
-<div class="card-img-top" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-size: cover; background-position: center;"></div>
+ <div class="card-img-top" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-size: cover; background-position: center;"></div>
 
               <%
 =begin%>
  <div class="card-img-top" style="height: 150px; background-image: url('<%= event.image_url || 'path_to_default_image' %>'); background-size: cover; background-position: center;"></div>
+<%
+=end%>
+<%
+=begin%>
+ <div class="card-img-top" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-size: cover; background-position: center;"></div>
 <%
 =end%>
 
