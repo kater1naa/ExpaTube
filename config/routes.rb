@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "pages#home"
-  resources :events, only: %i[index show new create] do
+  resources :events, only: %i[index show new create destroy] do
     resources :attendances, only: %i[create]
   end
   resources :attendances, only: :index

@@ -5,52 +5,52 @@ Event.destroy_all
 Category.destroy_all
 User.destroy_all
 
-user1 = User.new(first_name: "Katerina", last_name: "Mastrogianni", email: "user1@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Katerina, and I find joy in the little things. Whether it's experimenting with new recipes in the kitchen, getting lost in a good book, or simply taking leisurely walks, I believe in savoring the beauty of ordinary moments.")
+user1 = User.new(first_name: "Katerina", last_name: "Mastrogianni", email: "user1@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Katerina, and I find joy in the little things. Whether it's experimenting with new recipes in the kitchen, getting lost in a good book, or simply taking leisurely walks, I believe in savoring the beauty of ordinary moments.", location: "Bonn")
 file = URI.open("https://avatars.githubusercontent.com/u/145225567?v=4")
 user1.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user1.save
 
-user2 = User.new(first_name: "Alexander", last_name: "Wojdynski", email: "user2@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Alexander, and my curiosity is my driving force. Whether I'm diving into a new book or exploring a fresh hobby, I'm all about embracing the journey of continuous learning and personal growth.")
+user2 = User.new(first_name: "Alexander", last_name: "Wojdynski", email: "user2@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Alexander, and my curiosity is my driving force. Whether I'm diving into a new book or exploring a fresh hobby, I'm all about embracing the journey of continuous learning and personal growth.", location: "Cologne")
 file = URI.open("https://avatars.githubusercontent.com/u/91845534?v=4")
 user2.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user2.save
 
-user3 = User.new(first_name: "Ehiaghe", last_name: "Aisiri", email: "user3@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Aisiri, and I thrive on building meaningful connections. Whether it's over a cup of coffee, through virtual chats, or by participating in community events, I believe in the power of genuine connections.")
+user3 = User.new(first_name: "Ehiaghe", last_name: "Aisiri", email: "user3@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Aisiri, and I thrive on building meaningful connections. Whether it's over a cup of coffee, through virtual chats, or by participating in community events, I believe in the power of genuine connections.", location: "Frankfurt")
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696014725/vk9ula0yvtdbc5o7q18w.jpg")
 user3.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user3.save
 
-user4 = User.new(first_name: "Julia", last_name: "Kleber", email: "user4@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Julia, and nature is my sanctuary. Hiking trails, camping under the stars, and immersing myself in the natural world are my go-to activities for finding peace and inspiration.")
+user4 = User.new(first_name: "Julia", last_name: "Kleber", email: "user4@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Julia, and nature is my sanctuary. Hiking trails, camping under the stars, and immersing myself in the natural world are my go-to activities for finding peace and inspiration.", location: "Cologne")
 file = URI.open("https://avatars.githubusercontent.com/u/142741980?v=4")
 user4.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user4.save
 
-user5 = User.new(first_name: "Bilal", last_name: "Can Sinaci", email: "user5@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Bilal, always on the lookout for the latest in tech. From smart home setups to exploring emerging technologies, I love navigating the ever-evolving digital landscape.")
+user5 = User.new(first_name: "Bilal", last_name: "Can Sinaci", email: "user5@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Bilal, always on the lookout for the latest in tech. From smart home setups to exploring emerging technologies, I love navigating the ever-evolving digital landscape.", location: "Frankfurt")
 file = URI.open("https://avatars.githubusercontent.com/u/146480108?v=4")
 user5.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user5.save
 
-user6 = User.new(first_name: "Elena", last_name: "Voda", email: "user6@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Elena, and fitness is my passion. Whether I'm hitting the gym, practicing yoga, or trying out new fitness trends, I believe in the holistic connection between mind and body.")
+user6 = User.new(first_name: "Elena", last_name: "Voda", email: "user6@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Elena, and fitness is my passion. Whether I'm hitting the gym, practicing yoga, or trying out new fitness trends, I believe in the holistic connection between mind and body.", location: "Koblenz")
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696170922/nyynrzjuydnabln3tqb8.jpg")
 user6.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user6.save
 
-user7 = User.new(first_name: "Natalia", last_name: "Quintero", email: "user7@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Natalia, and I express myself through art. Whether it's painting, writing, or playing music, creativity is my outlet, and I find inspiration in the act of creation.")
+user7 = User.new(first_name: "Natalia", last_name: "Quintero", email: "user7@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Natalia, and I express myself through art. Whether it's painting, writing, or playing music, creativity is my outlet, and I find inspiration in the act of creation.", location: "Essen")
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657526832/vcmgkgh5bzpbmzshbudy.jpg")
 user7.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user7.save
 
-user8 = User.new(first_name: "Flor", last_name: "Salvadeo", email: "user8@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Flor, and family is everything to me. Whether it's family dinners, game nights, or creating memories together, I cherish the bonds and moments shared with my loved ones.")
+user8 = User.new(first_name: "Flor", last_name: "Salvadeo", email: "user8@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Flor, and family is everything to me. Whether it's family dinners, game nights, or creating memories together, I cherish the bonds and moments shared with my loved ones.", location: "Essen")
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U02D2C95UUX-9eedf168bbec-192")
 user8.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user8.save
 
-user9 = User.new(first_name: "Karl", last_name: "von der Eltz", email: "user9@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Karl, a natural problem solver. Whether it's troubleshooting tech issues or finding innovative solutions in daily life, I thrive on overcoming challenges.")
+user9 = User.new(first_name: "Karl", last_name: "von der Eltz", email: "user9@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm Karl, a natural problem solver. Whether it's troubleshooting tech issues or finding innovative solutions in daily life, I thrive on overcoming challenges.", location: "Koblenz")
 file = URI.open("https://avatars.githubusercontent.com/u/71014523?v=4")
 user9.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user9.save
 
-user10 = User.new(first_name: "David", last_name: "Julian", email: "user10@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm David, a fitness guru, turns sweat into smiles. Committed to a healthy lifestyle, he motivates others to embrace the benefits of exercise. Outside the gym, Leo enjoys outdoor adventures and wellness hacks.")
+user10 = User.new(first_name: "David", last_name: "Julian", email: "user10@example.com", password: "123456", social_media: "https://www.instagram.com/username/", bio: "I'm David, a fitness guru, turns sweat into smiles. Committed to a healthy lifestyle, he motivates others to embrace the benefits of exercise. Outside the gym, Leo enjoys outdoor adventures and wellness hacks.", location: "Cologne")
 file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696014835/vppoaniwuxef5tletxke.jpg")
 user10.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user10.save
