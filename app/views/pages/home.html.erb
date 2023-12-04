@@ -4,13 +4,17 @@
   </div>
 </div>
 <div class="container">
-  <div class="row">
+  <div class="row" style="--bs-gutter-x: 5rem;">
     <% @categories.each_with_index do |category, index| %>
       <% if index == @categories.length - 1 %>
-        <div class="col-12 mb-4 d-flex">
+        <div class="col-12 mb-4 d-flex justify-content-around">
           <%= link_to events_path(category: category.name) do %>
-            <div class="card" style="height: 300px; width: 1310px; border-radius: 15px; overflow: hidden;">
-              <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= category.image_url || 'https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg' %>'); background-size: cover; background-position: center; border-radius: 10px;">
+            <div class="card mx-6" style="height: 300px; width: 1327px; border-radius: 15px; overflow: hidden;">
+              <% if category.photo.attached? %>
+                <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(category.photo) %>); background-size: cover; background-position: center; border-radius: 10px;">
+              <% else %>
+                <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-size: cover; background-position: center; border-radius: 10px;">
+              <% end %>
                 <div class="card-img-overlay d-flex justify-content-center align-items-center">
                   <h5 class="card-title text-center" style="font-size: 36px; font-weight: bold; color: white;"><%= category.name %></h5>
                 </div>
@@ -19,10 +23,14 @@
           <% end %>
         </div>
       <% else %>
-        <div class="col-lg-6 mb-4 d-flex">
+        <div class="col-lg-6 mb-4 d-flex justify-content-around">
           <%= link_to events_path(category: category.name) do %>
-            <div class="card" style="height: 300px; width: 650px; border-radius: 15px; overflow: hidden;">
-              <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= category.image_url || 'https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg' %>'); background-size: cover; background-position: center; border-radius: 10px;">
+            <div class="card mx-6" style="height: 300px; width: 650px; border-radius: 15px; overflow: hidden;">
+              <% if category.photo.attached? %>
+                <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(category.photo) %>); background-size: cover; background-position: center; border-radius: 10px;">
+              <% else %>
+                <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-size: cover; background-position: center; border-radius: 10px;">
+              <% end %>
                 <div class="card-img-overlay d-flex justify-content-center align-items-center">
                   <h5 class="card-title text-center" style="font-size: 36px; font-weight: bold; color: white;"><%= category.name %></h5>
                 </div>
@@ -34,3 +42,4 @@
     <% end %>
   </div>
 </div>
+
