@@ -1,4 +1,5 @@
 <div class="wraper">
+
   <div class="container d-flex justify-content-around">
     <div>
       <h5>Events I want to attend</h5>
@@ -14,6 +15,7 @@
         <% end %>
       <% end %>
     </div>
+
     <div>
       <h5>Events I am hosting</h5>
         <% @events_as_host.each do |event|%>
@@ -26,17 +28,21 @@
         </div>
         <% end %>
         <% end %>
+    </div>
 
+   <div class="card">
+    <div class="card-body">
+      <div id="profilepicture" class="align-items-center justify-content-center">
+        <h5 class="card-title">My Profile</h5>
+        <%= cl_image_tag current_user.avatar.key, id:"profileavatar", class: "card-img-top", crop: :fill %>
+        <p class="card-text"><%= current_user.bio %></p>
+        <p class="card-text"><%= current_user.location %> <i class="bi bi-pin-map-fill"></i></p>
+        <p class="card-text">Let's connect!</p>
+        <a href='<%= current_user.social_media %>' target='_blank' class="card-link"><i class='fab fa-instagram'></i></a>
+        <a href="https://twitter.com/ExpaTube" target="_blank" class="card-link"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.facebook.com/ExpaTube" target="_blank" class="card-link"><i class="fab fa-facebook"></i></a>
+      </div>
     </div>
-    <div id="profilepicture" class=" align-items-center justify-content-center">
-      <h5>My Profile</h5>
-      <%= cl_image_tag current_user.avatar.key, id:"profileavatar", crop: :fill%>
-      <p><%= current_user.bio %></p>
-      <p> <%= current_user.location %> <i class="bi bi-pin-map-fill"></i></p>
-      <p>Let's connect!</p>
-      <a href= '<%= current_user.social_media %>' target= '_blank'><i class='fab fa-instagram'></i></a>
-      <a href="https://twitter.com/ExpaTube" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.facebook.com/ExpaTube" target="_blank"><i class="fab fa-facebook"></i></a>
-    </div>
-  </div>
+</div>
+</div>
 </div>
