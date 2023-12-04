@@ -56,21 +56,70 @@ user10.avatar.attach(io: file, filename: "user.png", content_type: "image/png")
 user10.save
 
 casual = Category.create!(name: "Casual Meetups")
+casual_photo = File.open(Rails.root.join('app/assets/images/event-picture5.jpg'))
+casual.photo.attach(io: casual_photo, filename: 'event-picture5.jpg', content_type: 'image/jpg')
+casual.save
+
 sports = Category.create!(name: "Sports & Fitness")
-# outdoor =
-Category.create!(name: "Outdoor Activities")
-# arts =
-Category.create!(name: "Arts & Entertainment")
-# adventure =
-Category.create!(name: "Travel & Adventure")
-# family =
-Category.create!(name: "Family & Parenting")
-# hobbies =
-Category.create!(name: "Crafts & Hobbies")
-# concerts =
-Category.create!(name: "Concerts")
-# meetups =
-Category.create!(name: "Other Meetups")
+sports_photo = File.open(Rails.root.join('app/assets/images/event-picture3.jpg'))
+sports.photo.attach(io: sports_photo, filename: 'event-picture3.jpg', content_type: 'image/jpg')
+sports.save
+
+outdoor = Category.create!(name: "Outdoor Activities")
+outdoor_photo = File.open(Rails.root.join('app/assets/images/event-picture6.jpg'))
+outdoor.photo.attach(io: outdoor_photo, filename: 'event-picture6.jpg', content_type: 'image/jpg')
+outdoor.save
+
+arts = Category.create!(name: "Arts & Entertainment")
+arts_photo = File.open(Rails.root.join('app/assets/images/event-picture2.jpg'))
+arts.photo.attach(io: arts_photo, filename: 'event-picture2.jpg', content_type: 'image/jpg')
+arts.save
+
+adventure = Category.create!(name: "Travel & Adventure")
+adventure_photo = File.open(Rails.root.join('app/assets/images/event-picture4.jpg'))
+adventure.photo.attach(io: adventure_photo, filename: 'event-picture4.jpg', content_type: 'image/jpg')
+adventure.save
+
+family = Category.create!(name: "Family & Parenting")
+family_photo = File.open(Rails.root.join('app/assets/images/event-picture7.jpg'))
+family.photo.attach(io: family_photo, filename: 'event-picture7.jpg', content_type: 'image/jpg')
+family.save
+
+hobbies = Category.create!(name: "Crafts & Hobbies")
+hobbies_photo = File.open(Rails.root.join('app/assets/images/event-picture1.jpg'))
+hobbies.photo.attach(io: hobbies_photo, filename: 'event-picture1.jpg', content_type: 'image/jpg')
+hobbies.save
+
+concerts = Category.create!(name: "Other Meetups")
+concerts_photo = File.open(Rails.root.join('app/assets/images/event-picture8.jpg'))
+concerts.photo.attach(io: concerts_photo, filename: 'event-picture8.jpg', content_type: 'image/jpg')
+concerts.save
+
+meetups = Category.create!(name: "All Meetups")
+meetups_photo = File.open(Rails.root.join('app/assets/images/event-picture9.jpg'))
+meetups.photo.attach(io: meetups_photo, filename: 'event-picture9.jpg', content_type: 'image/jpg')
+meetups.save
+
+# casual = Category.create!(name: "Sports & Fitness")
+# casual_photo = File.open(Rails.root.join('app/assets/images/event-picture3.jpg'))
+# casual.photo.attach(io: casual_photo, filename: 'event-picture5.jpg', content_type: 'image/jpg')
+# casual.save
+
+# sports = Category.create!(name: "Sports & Fitness")
+# # outdoor =
+# Category.create!(name: "Outdoor Activities")
+# # arts =
+# Category.create!(name: "Arts & Entertainment")
+# # adventure =
+# Category.create!(name: "Travel & Adventure")
+# # family =
+# Category.create!(name: "Family & Parenting")
+# # hobbies =
+# Category.create!(name: "Crafts & Hobbies")
+# # concerts =
+# Category.create!(name: "Concerts")
+# # meetups =
+# Category.create!(name: "Other Meetups")
 
 Event.create!(title: "Chill & Connect", user: user1, address: "Rheinlanddamm 200 44139 Dortmund", description: "The perfect setting for those seeking a relaxed and friendly environment to meet new people.", category: casual, limit: 15, starts_at: DateTime.new(2023, 12, 9, 10, 0, 0), ends_at: DateTime.new(2023, 12, 9, 12, 0, 0))
 
