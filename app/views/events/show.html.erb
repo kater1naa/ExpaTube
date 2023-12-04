@@ -16,7 +16,7 @@
           <p><strong>Date:</strong> <%= @event.starts_at.strftime("%B %e, %Y") %></p>
           <p><strong>Time:</strong> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
           <p><strong>Location:</strong> <%= @event.address %></p>
-          <p><strong>Limit:</strong> <%= @event.limit %></p>
+          <p><strong>Limit:</strong>  /<%= @event.limit %></p>
           <%# Display event description %>
           <p><strong>Description:</strong> <%= @event.description %></p>
           <%# Display event creator information %>
