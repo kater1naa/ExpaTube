@@ -1,49 +1,26 @@
-<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="position: relative; width: 100%;">
   <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="3000">
-    <div style="position: relative; text-align: center; color: white;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701343118/event-picture6_qdowl3.jpg');
-            height: 500px; background-position: center; background-repeat: no-repeat; background-size: cover;">
+    <% @events.each_with_index do |event, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>" data-bs-interval="3000">
+        <div style="position: relative; text-align: center; color: white;
+                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(event.photo) if event.photo.attached? %>);
+                height: 500px; background-position: center; background-repeat: no-repeat; background-size: cover;">
 
-    <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        <span style="font-size: 1em;">Chill & Connect</span> <br>
-        <span style="font-size: 0.75em;">The perfect setting for those seeking a relaxed and friendly environment to meet new people.</span> <br>
-        <span style="font-size: 0.50em;">December 9, 2023</span>
-    </h1>
-</div>
-    </div>
-    <div class="carousel-item">
-    <div style="position: relative; text-align: center; color: white;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701343115/event-picture4_veit55.jpg');
-            height: 500px; background-position: center; background-repeat: no-repeat; background-size: cover;">
-
-    <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;"">
-        <span style="font-size: 1em;">Casual Conversations</span> <br>
-        <span style="font-size: 0.75em;">The go-to event for those who appreciate the beauty of unhurried, spontaneous dialogue in a laid-back setting.</span> <br>
-        <span style="font-size: 0.50em;">Düsseldorf</span>
-    </h1>
-</div>
-    </div>
-    <div class="carousel-item">
-    <div style="position: relative; text-align: center; color: white;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg');
-            height: 500px; background-position: center; background-repeat: no-repeat; background-size: cover;">
-
-<h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-    <span style="font-size: 1em;">Friendly Faces</span> <br>
-    <span style="font-size: 0.75em;">Is your invitation to an event where warm smiles and welcoming personalities set the stage for meaningful connections.</span> <br>
-    <span style="font-size: 0.50em;">Duisburg</span>
-</h1>
-
-</div>
-
-    </div>
+          <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <span style="font-size: 1em;"><%= event.title %></span> <br>
+            <span style="font-size: 0.75em;"><%= event.description %></span> <br>
+            <span style="font-size: 0.50em;"><%= event.starts_at.strftime("%B %d, %Y") %></span>
+          </h1>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style="position: absolute; top: 50%; left: 15px; transform: translateY(-50%);">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%);">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
@@ -73,18 +50,6 @@
             <div class="card" style="border-radius: 10px; overflow: hidden;">
  <div class="card-img-top" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-size: cover; background-position: center;"></div>
 
-              <%
-=begin%>
- <div class="card-img-top" style="height: 150px; background-image: url('<%= event.image_url || 'path_to_default_image' %>'); background-size: cover; background-position: center;"></div>
-<%
-=end%>
-<%
-=begin%>
- <div class="card-img-top" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-size: cover; background-position: center;"></div>
-<%
-=end%>
-
-
               <div class="card-body">
                 <h5 class="card-title" style="color: black; font-weight: bold; text-align: center;"><%= event.title %></h5>
                 <div class="text-center">
@@ -94,11 +59,6 @@
                   <p style="margin-bottom: 1rem;"> <strong>Time:</strong> <%= event.starts_at.strftime("%l:%M %p") %> </p>
                   <p style="margin-bottom: 1rem;"> <strong>Location:</strong> <%= event.address %> </p>
                   <p style="margin-bottom: 1rem;"> <strong>Free slots:</strong> <%= event.limit %> </p>
-                  <%
-=begin%>
- <p><strong>Created by:</strong> <%= creator.first_name%> <%= creator.last_name %></p>
-<%
-=end%>
                 </div>
               </div>
             </div>

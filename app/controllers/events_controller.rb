@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @events = Event.includes(:category)
 
     if params[:category].present?
       category = Category.find_by(name: params[:category])
