@@ -1,12 +1,12 @@
 class EventsController < ApplicationController
 
   def index
-    if params[:category].present?
+    if params[:category].present? && params[:category].downcase != "all meetups"
       @category = Category.find_by(name: params[:category])
       @events = @category.events
     elsif params[:query].present?
-      @events = Event.search_by_title_and_description(params[:query])
-      @events += Event.near(params[:query], 30)
+      @events = Event.search_by_title_and_description(params[:query]).includes(:category)
+      @events += Event.near(params[:query], 30).includes(:category)
     else
       @events = Event.all.includes(:category)
     end
