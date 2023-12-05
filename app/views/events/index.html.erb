@@ -27,43 +27,37 @@
 </div>
 
 <%# Group events by category %>
-<% @events.group_by(&:category).each do |category, events| %>
-  <% if category %>
-    <h2 style="color: black; font-weight: bold; text-align: center;"><%= category.name %></h2>
-    <% events.each do |event| %>
-      <%# Output event details here %>
-    <% end %>
-  <% else %>
-    <h2 style="color: black; font-weight: bold; text-align: center;">Uncategorized Events</h2>
-    <% events.each do |event| %>
-      <%# Output event details here %>
-    <% end %>
-  <% end %>
-<% end %>
-
 <div class="container">
   <div class="row">
-    <% @events.in_groups_of(2, false).each do |group| %>
-      <% group.each do |event| %>
-        <div class="col-md-6" style="padding-bottom: 15px;">
-          <%= link_to event_path(event), class: 'text-decoration-none' do %>
-            <div class="card" style="border-radius: 10px; overflow: hidden;">
- <div class="card-img-top" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-size: cover; background-position: center;"></div>
-
-              <div class="card-body">
-                <h5 class="card-title" style="color: black; font-weight: bold; text-align: center;"><%= event.title %></h5>
-                <div class="text-center">
+    <% @events.group_by(&:category).each do |category, events| %>
+      <% if category %>
+        <h2 style="color: black; font-weight: bold; text-align: center;"><%= category.name %></h2>
+        <% events.each do |event| %>
+          <div class="col-md-6" style="padding-bottom: 15px;">
+              <%= link_to event_path(event), class: 'text-decoration-none' do %>
+                <div class="card" style="border-radius: 10px; overflow: hidden;">
+                  <div class="card-img-top" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-size: cover; background-position: center;">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title" style="color: black; font-weight: bold; text-align: center;"><%= event.title %></h5>
+                    <div class="text-center">
+                    </div>
+                    <div class="d-flex justify-content-between mt-6" style="flex-wrap: wrap;">
+                      <p style="margin-bottom: 1rem;"> <strong>Date:</strong> <%= event.starts_at.strftime("%B %e, %Y") %> </p>
+                      <p style="margin-bottom: 1rem;"> <strong>Time:</strong> <%= event.starts_at.strftime("%l:%M %p") %> </p>
+                      <p style="margin-bottom: 1rem;"> <strong>Location:</strong> <%= event.address %> </p>
+                      <p style="margin-bottom: 1rem;"> <strong>Free slots:</strong> <%= event.limit %> </p>
+                    </div>
+                  </div>
                 </div>
-                <div class="d-flex justify-content-between mt-6" style="flex-wrap: wrap;">
-                  <p style="margin-bottom: 1rem;"> <strong>Date:</strong> <%= event.starts_at.strftime("%B %e, %Y") %> </p>
-                  <p style="margin-bottom: 1rem;"> <strong>Time:</strong> <%= event.starts_at.strftime("%l:%M %p") %> </p>
-                  <p style="margin-bottom: 1rem;"> <strong>Location:</strong> <%= event.address %> </p>
-                  <p style="margin-bottom: 1rem;"> <strong>Free slots:</strong> <%= event.limit %> </p>
-                </div>
-              </div>
+              <% end %>
             </div>
-          <% end %>
-        </div>
+        <% end %>
+      <% else %>
+        <h2 style="color: black; font-weight: bold; text-align: center;">Uncategorized Events</h2>
+        <% events.each do |event| %>
+          <%# Output event details here %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
