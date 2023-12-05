@@ -1,12 +1,14 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
-    @events = Event.includes(:category)
-
     if params[:category].present?
-      category = Category.find_by(name: params[:category])
-      @events = @events.where(category_id: category.id)
+      @category = Category.find_by(name: params[:category])
+      @events = category.events
+    elsif params[:query].present?
+      @events = Event.search_by_title_and_description(params[:query])
+      @events += Event.near(params[:query], 30)
+    else
+      @events = Event.all.includes(:category)
     end
   end
 
