@@ -15,4 +15,10 @@ class AttendancesController < ApplicationController
       redirect_to @event, alert: 'Failed to create attendance.'
     end
   end
+
+  def destroy
+    @attendance = Attendance.find(params[:id])
+    @attendance.destroy
+    redirect_to events_path, status: :see_other
+  end
 end
