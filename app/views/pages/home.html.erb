@@ -7,9 +7,9 @@
   <div class="row">
     <% @categories.each_with_index do |category, index| %>
       <% if index == @categories.length - 1 %>
-        <div class="col-12 mb-4 d-flex">
+        <div class="col-12 mb-4 d-flex" >
           <%= link_to events_path(category: category.name) do %>
-            <div class="card mx-6" style="height: 300px; width: 1327px; border-radius: 15px; overflow: hidden;">
+            <div class="card mx-6" style="height: 300px; width: 1270px; border-radius: 15px; overflow: hidden;">
               <% if category.photo.attached? %>
                 <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(category.photo) %>); background-size: cover; background-position: center; border-radius: 10px;">
               <% else %>
@@ -23,7 +23,7 @@
           <% end %>
         </div>
       <% else %>
-        <div class="col-lg-6 mb-4 d-flex">
+        <div class="col-lg-6 mb-4 d-flex" style="--bs-gutter-x: 2rem;>
           <%= link_to events_path(category: category.name) do %>
             <div class="card mx-6" style="height: 300px; width: 650px; border-radius: 15px; overflow: hidden;">
               <% if category.photo.attached? %>
