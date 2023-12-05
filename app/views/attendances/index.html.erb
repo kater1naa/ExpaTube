@@ -4,7 +4,7 @@
 
 
   <div class="w-100 row justify-content-evenly">
-    <div class="col-3 card py-5" style="background-color: rgba(234, 234, 234, 0.3); backdrop-filter: blur(300px);">
+    <div class="col-3 card py-5" style="background-color: rgba(234, 234, 234, 0.6); backdrop-filter: blur(100px);">
       <h5 class="text-center">My Joined Events</h5>
       <% @attendances.each do |attendance|%>
         <%= link_to attendance_path(attendance.event) do %>
@@ -23,7 +23,7 @@
 
 
 
-   <div class="col-3 card py-5" style="background-color: rgba(234, 234, 234, 0.3); backdrop-filter: blur(300px);">
+   <div class="col-3 card py-5" style="background-color: rgba(234, 234, 234, 0.6); backdrop-filter: blur(100px);">
       <h5 class="text-center">My Hosted Events</h5>
         <% @events_as_host.each do |event|%>
           <%= link_to event_path(event) do %>
@@ -40,7 +40,7 @@
 
 
 
-  <div class="col-3 card py-5 d-flex align-items-center justify-content-center" style="background-color: rgba(234, 234, 234, 0.3); backdrop-filter: blur(300px);">
+  <div class="col-3 card py-5 d-flex align-items-center justify-content-center" style="background-color: rgba(234, 234, 234, 0.6); backdrop-filter: blur(100px);">
     <div id="profilepicture" class="d-flex flex-column align-items-center justify-content-center">
       <h5 class="card-title">My Profile</h5>
       <%= cl_image_tag current_user.avatar.key, id:"profileavatar", class: "card-img-top", crop: :fill %>
