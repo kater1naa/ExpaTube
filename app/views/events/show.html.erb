@@ -1,10 +1,17 @@
-<div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dvoqjgv7l/image/upload/v1701333856/outdoor1_bmwfyw.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center; margin-top: 0; margin-bottom: 20px;">
-  <div class="container">
-    <h1 style="color: white; text-align: center;">Your hub for expat adventures. Attend or create your event.
-    <br> Make friends for a lifetime.
-    </h1>
+<% if @event %>
+  <div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(@event.category.photo) %>); background-repeat: no-repeat; background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center; margin-top: 0; margin-bottom: 20px;">
+    <div class="container">
+      <h1 style="color: white; text-align: center; position: relative;">
+        <span style="font-size: 1em;"><%= @event.category.name %></span> <br>
+        <span style="font-size: 0.75em;"><%= @event.category.image_url %></span>
+        <br>
+      </h1>
+    </div>
   </div>
-</div>
+<% else %>
+  <!-- Fallback content if event is not available -->
+<% end %>
+
 
 <div class="wraper custom-class">
   <div id="container-shadow" class="container my-5">
@@ -16,7 +23,7 @@
           <p><strong>Date:</strong> <%= @event.starts_at.strftime("%B %e, %Y") %></p>
           <p><strong>Time:</strong> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
           <p><strong>Location:</strong> <%= @event.address %></p>
-          <p><strong>Limit:</strong>  /<%= @event.limit %></p>
+          <p><strong>Limit:</strong> <%= @event.limit %></p>
           <%# Display event description %>
           <p><strong>Description:</strong> <%= @event.description %></p>
           <%# Display event creator information %>

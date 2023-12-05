@@ -3,13 +3,27 @@
     <h1 style="color: white; text-align: center;">Your hub for expat adventures. Attend or create your event. <br> Make friends for a lifetime.</h1>
   </div>
 </div>
-<div class="container">
+
+<style>
+  .row {
+    --bs-gutter-x: 3rem;  /* Horizontal gutter */
+    --bs-gutter-y: 0rem;   /* Vertical gutter */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjusts children spacing */
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-1.25 * var(--bs-gutter-x));
+    margin-left: calc(-1.0 * var(--bs-gutter-x));
+  }
+</style>
+
+<div class="container ms-5">
   <div class="row">
     <% @categories.each_with_index do |category, index| %>
       <% if index == @categories.length - 1 %>
         <div class="col-12 mb-4 d-flex">
           <%= link_to events_path(category: category.name) do %>
-            <div class="card mx-6" style="height: 300px; width: 1327px; border-radius: 15px; overflow: hidden;">
+            <div class="card mx-6" style="height: 300px; width: 1345px; border-radius: 15px; overflow: hidden;">
               <% if category.photo.attached? %>
                 <div style="height: 100%; width: 100%; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(category.photo) %>); background-size: cover; background-position: center; border-radius: 10px;">
               <% else %>
