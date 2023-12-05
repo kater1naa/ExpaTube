@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   def index
     if params[:category].present?
       @category = Category.find_by(name: params[:category])
-      @events = category.events
+      @events = @category.events
     elsif params[:query].present?
       @events = Event.search_by_title_and_description(params[:query])
       @events += Event.near(params[:query], 30)
