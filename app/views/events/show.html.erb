@@ -26,10 +26,10 @@
           <p><strong>Limit:</strong> <%= @event.limit %></p>
           <%# Display event description %>
           <p><strong>Description:</strong> <%= @event.description %></p>
-          <%# Display event creator information %>
-          <p><strong>Created by:</strong> <%= @creator.first_name%> <%= @creator.last_name %></p>
-          <%# link_to "Join event", events_path % %>
+          <%# <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> %>
+          <h3 data-bs-toggle="modal" data-bs-target="#exampleModal"><strong><%= @creator.first_name%> <%= @creator.last_name %></strong></h3>
            <%= button_to "Join Event", event_attendances_path(@event), class:"btn btn-primary" unless @event.user == current_user %>
+           <%= render "modal", user: @creator %>
         </div>
       </div>
 
