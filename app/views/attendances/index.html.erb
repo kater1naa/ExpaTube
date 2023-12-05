@@ -4,12 +4,12 @@
 
 
   <div class="w-100 row justify-content-evenly">
-    <div class="col-3 card py-5">
-      <h5>Events I want to attend</h5>
+    <div class="col-3 card py-5" style="background-color: rgba(234, 234, 234, 0.3); backdrop-filter: blur(300px);">
+      <h5 class="text-center">My Joined Events</h5>
       <% @attendances.each do |attendance|%>
         <%= link_to attendance_path(attendance.event) do %>
-          <div class="card">
-            <div class="card-body">
+          <div class="card mt-4 mb-4">
+            <div class="card-body text-center">
               <p>
                 <%= attendance.event.title %>
               </p>
@@ -23,14 +23,14 @@
 
 
 
-   <div class="col-3 card py-5">
-      <h5>Events I am hosting</h5>
+   <div class="col-3 card py-5" style="background-color: rgba(234, 234, 234, 0.3); backdrop-filter: blur(300px);">
+      <h5 class="text-center">My Hosted Events</h5>
         <% @events_as_host.each do |event|%>
           <%= link_to event_path(event) do %>
-          <div class="card">
-              <div class="card-body">
+          <div class="card mt-4 mb-4">
+              <div class="card-body text-center">
                 <p><%= event.title %></p>
-                <%= link_to "Delete Event", event_path(event), class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this event?" } %>
+                <%= link_to "Delete Event", event_path(event), class:"btn btn-primary text-center", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this event?" } %>
             </div>
           </div>
           <% end %>
@@ -40,7 +40,7 @@
 
 
 
-  <div class="col-3 card py-5 d-flex align-items-center justify-content-center">
+  <div class="col-3 card py-5 d-flex align-items-center justify-content-center" style="background-color: rgba(234, 234, 234, 0.3); backdrop-filter: blur(300px);">
     <div id="profilepicture" class="d-flex flex-column align-items-center justify-content-center">
       <h5 class="card-title">My Profile</h5>
       <%= cl_image_tag current_user.avatar.key, id:"profileavatar", class: "card-img-top", crop: :fill %>
