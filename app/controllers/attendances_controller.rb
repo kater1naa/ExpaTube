@@ -12,7 +12,7 @@ class AttendancesController < ApplicationController
     if @attendance.save
       redirect_to @event, notice: 'Attendance created successfully!'
     else
-      redirect_to @event, alert: 'Failed to create attendance.'
+      redirect_to @event, alert: 'You already participate to this event.'
     end
   end
 

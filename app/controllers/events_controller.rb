@@ -1,17 +1,20 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
-    @events = Event.includes(:category)
-
-    if params[:category].present?
-      category = Category.find_by(name: params[:category])
-      @events = @events.where(category_id: category.id)
+    if params[:category].present? && params[:category].downcase != "all meetups"
+      @category = Category.find_by(name: params[:category])
+      @events = @category.events
+    elsif params[:query].present?
+      @events = Event.search_by_title_and_description(params[:query]).includes(:category)
+      @events += Event.near(params[:query], 30).includes(:category)
+    else
+      @events = Event.all.includes(:category)
     end
   end
 
   def show
     @event = Event.find(params[:id])
+    @events = Event.all
     @creator = @event.user
     @markers = [{ lat: @event.latitude, lng: @event.longitude}]
   end
@@ -41,6 +44,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :category_id, :address, :limit, :starts_at, :ends_at)
+    params.require(:event).permit(:title, :description, :category_id, :address, :limit, :starts_at, :ends_at, :photo)
   end
 end
