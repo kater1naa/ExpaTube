@@ -1,6 +1,5 @@
-<h2>Create a New Event</h2>
 
-<%= simple_form_for @event do |form| %>
+<%= simple_form_for event do |form| %>
   <%= form.input :title %>
 
   <%= form.association :category, collection: Category.all, prompt: 'Select a category' %>
@@ -17,5 +16,5 @@
 
   <%= form.input :photo, as: :file %>
 
-  <%= form.button :submit, 'Create Event' %>
+  <%= form.button :submit, 'Create Event', class: "btn btn-primary" %>
 <% end %>
