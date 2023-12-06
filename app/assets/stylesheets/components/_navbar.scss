@@ -50,3 +50,8 @@ place-content: center;
 .blue {
   color:#F3B20B
 }
+
+.blurred {
+  filter: blur(0.1px);
+  background-color: #F3B20B;
+}

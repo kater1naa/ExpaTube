@@ -13,8 +13,36 @@
 <% end %>
 
 
+
+
+
+<div class="contenedor-flex">
+    <div class="item">
+        <span class="emoji">🗓️</span>
+        <p><strong>Date:</strong> <%= @event.starts_at.strftime("%B %e, %Y") %></p>
+    </div>
+    <div class="item">
+        <span class="emoji">⏰</span>
+        <p><strong>Time:</strong> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
+    </div>
+    <div class="item">
+        <span class="emoji">👥</span>
+        <p><strong>Limit:</strong> <%= @event.limit %></p>
+    </div>
+    <div class="item">
+        <span class="emoji">📍</span>
+        <p><strong>Location:</strong> <%= @event.address %></p>
+    </div>
+</div>
+
+
+
+
+
+
+
 <div class="wraper custom-class">
-  <div id="container-shadow" class="container my-5">
+  <div id="container-shadow" class="container mt-3 mb-5">
     <div class="row">
       <div class="col-8" >
         <h2><%= @event.title %></h2>
