@@ -3,7 +3,17 @@
   <%# Logo %>
 <div class="d-flex justify-content-center align-items-center">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png", alt: "alttext", class: "logo" %>
+    <div id="logoform" class="container">
+    <span class="blue">E</span>
+    <span class="blue">x</span>
+    <span class="blue">p</span>
+    <span class="blue">a</span>
+    <span class="blue">T</span>
+    <span class="blue">u</span>
+    <span class="blue">b</span>
+    <span class="blue">e</span>
+    </div>
+
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,9 +51,7 @@
               <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "🔐 Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>

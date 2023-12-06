@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :events, only: %i[index show new create destroy] do
     resources :attendances, only: %i[create]
   end
-  resources :attendances, only: :index
+  resources :attendances, only: %i[index destroy]
 
   get "up" => "rails/health#show", as: :rails_health_check
 

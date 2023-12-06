@@ -1,42 +1,61 @@
-<div class="wraper">
-  <div class="container d-flex justify-content-around">
-    <div>
-      <h5>Events I want to attend</h5>
+<div class="wraper d-flex justify-content-center bg-image-attendances">
+
+
+
+
+  <div class="w-100 row justify-content-evenly">
+    <div class="col-3 card py-5" style="background-color: rgba(234, 234, 234, 0.6); backdrop-filter: blur(100px);">
+      <h5 class="text-center">My Joined Events</h5>
       <% @attendances.each do |attendance|%>
-        <%= link_to event_path(attendance.event) do %>
-          <div class="card">
-            <div class="card-body">
+        <%= link_to attendance_path(attendance.event) do %>
+          <div class="card mt-4 mb-4">
+            <div class="card-body text-center">
               <p>
                 <%= attendance.event.title %>
               </p>
+              <%= link_to "Leave Event", attendance_path(attendance), class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to LEAVE this event?" } %>
             </div>
           </div>
         <% end %>
       <% end %>
     </div>
-    <div>
-      <h5>Events I am hosting</h5>
-        <% @events_as_host.each do |event|%>
-        <%= link_to event_path(event) do %>
-         <div class="card">
-            <div class="card-body">
-              <p><%= event.title %></p>
-              <%= link_to "Delete Event", event_path(event), class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this event?" } %>
-           </div>
-        </div>
-        <% end %>
-        <% end %>
 
+
+
+
+   <div class="col-3 card py-5" style="background-color: rgba(234, 234, 234, 0.6); backdrop-filter: blur(100px);">
+      <h5 class="text-center">My Hosted Events</h5>
+        <% @events_as_host.each do |event|%>
+          <%= link_to event_path(event) do %>
+          <div class="card mt-4 mb-4">
+              <div class="card-body text-center">
+                <p><%= event.title %></p>
+                <%= link_to "Delete Event", event_path(event), class:"btn btn-primary text-center", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this event?" } %>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
     </div>
-    <div id="profilepicture" class=" align-items-center justify-content-center">
-      <h5>My Profile</h5>
-      <%= cl_image_tag current_user.avatar.key, id:"profileavatar", crop: :fill%>
-      <p><%= current_user.bio %></p>
-      <p> <%= current_user.location %> <i class="bi bi-pin-map-fill"></i></p>
-      <p>Let's connect!</p>
-      <a href= '<%= current_user.social_media %>' target= '_blank'><i class='fab fa-instagram'></i></a>
-      <a href="https://twitter.com/ExpaTube" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.facebook.com/ExpaTube" target="_blank"><i class="fab fa-facebook"></i></a>
+
+
+
+
+  <div class="col-3 card py-5 d-flex align-items-center justify-content-center" style="background-color: rgba(234, 234, 234, 0.6); backdrop-filter: blur(100px);">
+    <div id="profilepicture" class="d-flex flex-column align-items-center justify-content-center">
+      <h5 class="card-title">My Profile</h5>
+      <%= cl_image_tag current_user.avatar.key, id:"profileavatar", class: "card-img-top", crop: :fill %>
+      <p class="card-text"><%= current_user.bio %></p>
+      <p class="card-text">📍 <%= current_user.location %> <i class="bi bi-pin-map-fill"></i></p>
+      <p class="card-text">Let's connect!</p>
+      <div>
+        <a href='<%= current_user.social_media %>' target='_blank' class="card-link"><i class='fab fa-instagram'></i></a>
+        <a href="https://twitter.com/username" target="_blank" class="card-link"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.facebook.com/username" target="_blank" class="card-link"><i class="fab fa-facebook"></i></a>
+      </div>
     </div>
   </div>
+</div>
+
+
+
 </div>
