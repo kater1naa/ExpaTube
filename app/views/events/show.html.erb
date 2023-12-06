@@ -55,7 +55,7 @@
           <%# Display event description %>
           <p><strong>Description:</strong> <%= @event.description %></p>
           <%# <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> %>
-          <h5 data-bs-toggle="modal" data-bs-target="#exampleModal"><strong><%= @creator.first_name%> <%= @creator.last_name %></strong></h5>
+          <h5 data-bs-toggle="modal" data-bs-target="#hostModal"><strong><%= @creator.first_name%> <%= @creator.last_name %></strong></h5>
            <%= button_to "Join Event", event_attendances_path(@event), class:"btn btn-primary" unless @event.user == current_user %>
            <%= render "modal", user: @creator %>
         </div>
