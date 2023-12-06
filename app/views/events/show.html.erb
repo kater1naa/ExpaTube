@@ -1,5 +1,5 @@
 <% if @event %>
-  <div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(@event.category.photo) %>); background-repeat: no-repeat; background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center; margin-top: 0; margin-bottom: 20px;">
+  <div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(@event.photo.attached? ? @event.photo : @event.category.photo) %>); background-repeat: no-repeat; background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center; margin-top: 0; margin-bottom: 20px;">
     <div class="container">
       <h1 style="color: white; text-align: center; position: relative;">
         <span style="font-size: 1em;"><%= @event.category.name %></span> <br>
