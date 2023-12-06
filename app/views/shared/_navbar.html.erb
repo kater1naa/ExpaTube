@@ -40,8 +40,10 @@
             <%= link_to "About", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Create Event", new_event_path, class: "btn btn-primary" %>
-          </li>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventModal">
+            Create event
+          </button>
+           </li>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.avatar.attached? %>
@@ -60,6 +62,25 @@
           </li>
         <% end %>
       </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eventModalLabel">Add an Event</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="bg-white rounded p-3 mt-4 mb-4 shadow">
+          <%= render "events/form", event: Event.new %>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
     </div>
   </div>
 </div>
