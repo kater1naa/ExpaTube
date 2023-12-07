@@ -17,6 +17,7 @@ class EventsController < ApplicationController
     @events = Event.all
     @creator = @event.user
     @markers = [{ lat: @event.latitude, lng: @event.longitude}]
+    @participants = User.event_id
   end
 
   def new
@@ -40,6 +41,7 @@ class EventsController < ApplicationController
     end
     redirect_to attendances_path, status: :see_other
   end
+
 
   private
 
