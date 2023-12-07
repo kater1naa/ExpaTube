@@ -24,7 +24,11 @@
   <% else %>
     <div class="item">
         <span class="emoji">🗓️</span>
-        <p><strong>Dates:</strong> <%= @event.starts_at.strftime("%B %e, %Y %l:%M") %> - <%= @event.ends_at.strftime("%l:%M") %></p>
+        <p><strong>Dates:</strong> <%= @event.starts_at.strftime("%B %e, %Y") %> - <br> <%= @event.ends_at.strftime("%B %e, %Y") %></p>
+    </div>
+    <div class="item">
+        <span class="emoji">⏰</span>
+        <p><strong>Time:</strong> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
     </div>
   <% end %>
   <div class="item">
