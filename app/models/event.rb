@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   has_one_attached :photo
 
   has_many :attendances, dependent: :destroy
+  has_many :users, through: :attendances
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_description,
