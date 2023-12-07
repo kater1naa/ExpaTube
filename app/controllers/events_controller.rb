@@ -17,7 +17,6 @@ class EventsController < ApplicationController
     @events = Event.all
     @creator = @event.user
     @markers = [{ lat: @event.latitude, lng: @event.longitude}]
-    @participants = User.event_id
   end
 
   def new
