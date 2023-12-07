@@ -12,6 +12,7 @@
 <% end %>
 
 <div class="contenedor-flex">
+  <% if @event.starts_at.day == @event.ends_at.day %>
     <div class="item">
         <span class="emoji">🗓️</span>
         <p><strong>Date:</strong> <%= @event.starts_at.strftime("%B %e, %Y") %></p>
@@ -20,14 +21,20 @@
         <span class="emoji">⏰</span>
         <p><strong>Time:</strong> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
     </div>
+  <% else %>
     <div class="item">
-        <span class="emoji">👥</span>
-        <p><strong>Limit:</strong> <%= @event.limit %></p>
+        <span class="emoji">🗓️</span>
+        <p><strong>Dates:</strong> <%= @event.starts_at.strftime("%B %e, %Y %l:%M") %> - <%= @event.ends_at.strftime("%l:%M") %></p>
     </div>
-    <div class="item">
-        <span class="emoji">📍</span>
-        <p><strong>Location:</strong> <%= @event.address %></p>
-    </div>
+  <% end %>
+  <div class="item">
+      <span class="emoji">👥</span>
+      <p><strong>Limit:</strong> <%= @event.limit %></p>
+  </div>
+  <div class="item">
+      <span class="emoji">📍</span>
+      <p><strong>Location:</strong> <%= @event.address %></p>
+  </div>
 </div>
 
 
