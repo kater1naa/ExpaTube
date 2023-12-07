@@ -6,10 +6,11 @@
       <% @attendances.each do |attendance|%>
         <%= link_to attendance_path(attendance.event) do %>
           <div class="card mt-4 mb-4" style="background-image: url(<%= attendance.event.photo.attached? ? url_for(attendance.event.photo) : url_for(attendance.event.category.photo) %>); background-size: cover; background-position: center;">
-            <div class="card-body text-center">
-              <p>
-                <%= attendance.event.title %>
+            <div class="card-body text-center" style="background-color: rgba(0, 0, 0, 0.5);">
+              <p class="card-title">
+                <%= link_to attendance.event.title, attendance_path(attendance.event), style: "color: white; text-decoration: none;" %>
               </p>
+
               <%= link_to "Leave Event", attendance_path(attendance), class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to LEAVE this event?" } %>
             </div>
           </div>
@@ -22,8 +23,10 @@
     <% @events_as_host.each do |event|%>
       <%= link_to event_path(event) do %>
         <div class="card mt-4 mb-4" style="background-image: url(<%= event.photo.attached? ? url_for(event.photo) : url_for(event.category.photo) %>); background-size: cover; background-position: center;">
-            <div class="card-body text-center" style="background-color: rgba(255, 255, 255, 0.0);">
-              <p><%= event.title %></p>
+            <div class="card-body text-center" style="background-color: rgba(0, 0, 0, 0.5);">
+              <p class="card-title">
+                <%= link_to event.title, event_path(event), style: "color: white; text-decoration: none;" %>
+              </p>
               <%= link_to "Delete Event", event_path(event), class:"btn btn-primary text-center", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this event?" } %>
           </div>
         </div>
