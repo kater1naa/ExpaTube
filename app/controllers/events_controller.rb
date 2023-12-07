@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @events = Event.all
     @creator = @event.user
-    @participants = @event.attendances.count
+
     @markers = [{ lat: @event.latitude, lng: @event.longitude}]
   end
 

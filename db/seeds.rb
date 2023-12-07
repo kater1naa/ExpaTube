@@ -121,7 +121,7 @@ meetups.save
 # # meetups =
 # Category.create!(name: "Other Meetups")
 
-Event.create!(title: "Chill & Connect", user: user1, address: "Rheinlanddamm 200 44139 Dortmund", description: "The perfect setting for those seeking a relaxed and friendly environment to meet new people.", category: casual, limit: 15, starts_at: DateTime.new(2023, 12, 9, 10, 0, 0), ends_at: DateTime.new(2023, 12, 9, 12, 0, 0))
+Event.create!(title: "Chill & Connect", user: user1, address: "Rheinlanddamm 200 44139 Dortmund", description: "The perfect setting for those seeking a relaxed and friendly environment to meet new people.Let's grab a cup of coffee and get to know each other.", category: casual, limit: 15, starts_at: DateTime.new(2023, 12, 9, 10, 0, 0), ends_at: DateTime.new(2023, 12, 9, 12, 0, 0))
 
 Event.create!(title: "Casual Conversations", user: user2, address: "Maritim Platz 1 40474 Düsseldorf", description: "The go-to event for those who appreciate the beauty of unhurried, spontaneous dialogue in a laid-back setting.", category: casual, limit: 13, starts_at: DateTime.new(2023, 12, 13, 18, 0, 0), ends_at: DateTime.new(2023, 12, 13, 20, 0, 0))
 

@@ -31,14 +31,20 @@
         <p> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
     </div>
   <% end %>
-  <div class="item">
-       <span class="emoji"><i class="fa-regular fa-user"></i></span>
-        <p> <%= @participants %> / <%= @event.limit %></p>
-    </div>
-    <div class="item">
-        <span class="emoji"><i class="fa-solid fa-map-pin"></i></span>
-        <p><%= @event.address %></p>
+  <div class="item" id="event-participants"
+  <% if @event.users.any? %>
+     data-bs-toggle="modal" data-bs-target="#participantsModal"
+  <% end %>
+    >
+    <span class="emoji"><i class="fa-regular fa-user"></i></span>
+    <p> <%= @event.users.count %> / <%= @event.limit %></p>
   </div>
+  <%= render "participants_modal", users: @event.users %>
+  <div class="item">
+    <span class="emoji"><i class="fa-solid fa-map-pin"></i></span>
+    <p><%= @event.address %></p>
+  </div>
+
 </div>
 
 
@@ -67,6 +73,7 @@
           <%= button_to "Join Event", event_attendances_path(@event), class:"btn btn-primary" unless @event.user == current_user %>
 
           <%= render "modal", user: @creator %>
+
         </div>
       </div>
 
