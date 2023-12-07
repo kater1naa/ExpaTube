@@ -12,6 +12,7 @@
 <% end %>
 
 <div class="contenedor-flex">
+  <% if @event.starts_at.day == @event.ends_at.day %>
     <div class="item">
         <span class="emoji"><i class="fa-regular fa-calendar"></i></span>
         <p><%= @event.starts_at.strftime("%B %e, %Y") %></p>
@@ -20,14 +21,24 @@
         <span class="emoji"><i class="fa-regular fa-clock"></i></span>
         <p><%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
     </div>
+  <% else %>
     <div class="item">
-        <span class="emoji"><i class="fa-regular fa-user"></i></span>
-        <p><%= @event.limit %></p>
+         <span class="emoji"><i class="fa-regular fa-calendar"></i></span>
+        <p><%= @event.starts_at.strftime("%B %e, %Y") %> - <br> <%= @event.ends_at.strftime("%B %e, %Y") %></p>
+    </div>
+    <div class="item">
+        <span class="emoji"><i class="fa-regular fa-clock"></i></span>
+        <p> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
+    </div>
+  <% end %>
+  <div class="item">
+       <span class="emoji"><i class="fa-regular fa-user"></i></span>
+        <p> <%= @participants %> / <%= @event.limit %></p>
     </div>
     <div class="item">
         <span class="emoji"><i class="fa-solid fa-map-pin"></i></span>
         <p><%= @event.address %></p>
-    </div>
+  </div>
 </div>
 
 

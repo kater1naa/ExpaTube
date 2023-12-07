@@ -16,6 +16,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @events = Event.all
     @creator = @event.user
+    @participants = @event.attendances.count
     @markers = [{ lat: @event.latitude, lng: @event.longitude}]
   end
 
@@ -38,8 +39,9 @@ class EventsController < ApplicationController
     if @event.user_id == current_user.id
       @event.destroy
     end
-    redirect_to events_path, status: :see_other
+    redirect_to attendances_path, status: :see_other
   end
+
 
   private
 
