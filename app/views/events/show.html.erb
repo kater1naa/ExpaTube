@@ -1,7 +1,7 @@
 <% if @event %>
     <div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(@event.photo.attached? ? @event.photo : @event.category.photo) %>); background-repeat: no-repeat; background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center;">
       <h1 style="color: white; text-align: center; position: relative;">
-        <span style="font-size: 1em;"><%= @event.category.name %></span> <br>
+        <span style="font-size: 1em;"><%= @event.title %></span> <br>
         <span style="font-size: 0.75em;"><%= @event.category.image_url %></span>
         <br>
       </h1>
@@ -13,46 +13,46 @@
 
 <div class="contenedor-flex">
     <div class="item">
-        <span class="emoji">🗓️</span>
-        <p><strong>Date:</strong> <%= @event.starts_at.strftime("%B %e, %Y") %></p>
+        <span class="emoji"><i class="fa-regular fa-calendar"></i></span>
+        <p><%= @event.starts_at.strftime("%B %e, %Y") %></p>
     </div>
     <div class="item">
-        <span class="emoji">⏰</span>
-        <p><strong>Time:</strong> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
+        <span class="emoji"><i class="fa-regular fa-clock"></i></span>
+        <p><%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
     </div>
     <div class="item">
-        <span class="emoji">👥</span>
-        <p><strong>Limit:</strong> <%= @event.limit %></p>
+        <span class="emoji"><i class="fa-regular fa-user"></i></span>
+        <p><%= @event.limit %></p>
     </div>
     <div class="item">
-        <span class="emoji">📍</span>
-        <p><strong>Location:</strong> <%= @event.address %></p>
+        <span class="emoji"><i class="fa-solid fa-map-pin"></i></span>
+        <p><%= @event.address %></p>
     </div>
 </div>
 
 
 
-
-
-
-
 <div class="wraper custom-class">
   <div id="container-shadow" class="container mt-3 mb-5">
-    <div class="row">
-      <div class="col-8" >
-        <h2><%= @event.title %></h2>
-        <div class="event-location-description">
-          <%# Display event details such as date, time, location, etc. %>
-          <p><strong>Date:</strong> <%= @event.starts_at.strftime("%B %e, %Y") %></p>
-          <p><strong>Time:</strong> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
-          <p><strong>Location:</strong> <%= @event.address %></p>
-          <p><strong>Limit:</strong> <%= @event.limit %></p>
-          <%# Display event description %>
-          <p><strong>Description:</strong> <%= @event.description %></p>
-          <%# <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> %>
-          <h5 data-bs-toggle="modal" data-bs-target="#hostModal"><strong><%= @creator.first_name%> <%= @creator.last_name %></strong></h5>
-           <%= button_to "Join Event", event_attendances_path(@event), class:"btn btn-primary" unless @event.user == current_user %>
-           <%= render "modal", user: @creator %>
+    <div id="event-card" class="row">
+      <div class="col-8 d-flex">
+        <div class="event-location-description d-flex flex-column justify-content-between p-3">
+          <div>
+            <div class="d-flex align-items-center" id="event-creator"  data-bs-toggle="modal" data-bs-target="#hostModal">
+              <%= cl_image_tag @creator.avatar.key, class: "avatar", alt: "dropdown menu" %>
+              <h5 class="ms-2 mb-0"><strong><%= @creator.first_name%> <%= @creator.last_name %></strong></h5>
+            </div>
+              <%# Display event details such as date, time, location, etc. %>
+              <%# Display event description %>
+            <div class="mt-3">
+              <p><%= @event.description %></p>
+            </div>
+          </div>
+              <%# <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> %>
+
+          <%= button_to "Join Event", event_attendances_path(@event), class:"btn btn-primary" unless @event.user == current_user %>
+
+          <%= render "modal", user: @creator %>
         </div>
       </div>
 
