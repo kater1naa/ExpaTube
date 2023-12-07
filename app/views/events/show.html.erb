@@ -1,6 +1,5 @@
 <% if @event %>
-    <div class="container">  <div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(@event.photo.attached? ? @event.photo : @event.category.photo) %>); background-repeat: no-repeat; background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center; margin-top: 0; margin-bottom: 20px;">
-
+    <div class="hero-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= url_for(@event.photo.attached? ? @event.photo : @event.category.photo) %>); background-repeat: no-repeat; background-size: cover; background-position: center; height: 500px; display: flex; justify-content: center; align-items: center;">
       <h1 style="color: white; text-align: center; position: relative;">
         <span style="font-size: 1em;"><%= @event.category.name %></span> <br>
         <span style="font-size: 0.75em;"><%= @event.category.image_url %></span>
@@ -11,10 +10,6 @@
 <% else %>
   <!-- Fallback content if event is not available -->
 <% end %>
-
-
-
-
 
 <div class="contenedor-flex">
     <div class="item">
