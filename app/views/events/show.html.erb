@@ -31,7 +31,7 @@
         <p> <%= @event.starts_at.strftime("%l:%M %p") %> - <%= @event.ends_at.strftime("%l:%M %p") %></p>
     </div>
   <% end %>
-  <div class="item">
+  <div class="item" id="event-participants"  data-bs-toggle="participants_modal" data-bs-target="#participantsModal">
        <span class="emoji"><i class="fa-regular fa-user"></i></span>
         <p> <%= @participants %> / <%= @event.limit %></p>
     </div>
