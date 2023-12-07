@@ -38,7 +38,7 @@ class EventsController < ApplicationController
     if @event.user_id == current_user.id
       @event.destroy
     end
-    redirect_to events_path, status: :see_other
+    redirect_to attendances_path, status: :see_other
   end
 
   private

@@ -19,6 +19,6 @@ class AttendancesController < ApplicationController
   def destroy
     @attendance = Attendance.find(params[:id])
     @attendance.destroy
-    redirect_to events_path, status: :see_other
+    redirect_to attendances_path, status: :see_other
   end
 end
