@@ -10,7 +10,7 @@
 
   <h1>Expatube</h1>
 
-  <p>Expatube is an exclusive platform designed for expats, fostering connections and community building through organized gatherings. This repository contains the source code and documentation for the Expatube project.</p>
+  <p>Expatube is a platform eclusively designed for expats, fostering connections and community building through organized gatherings. This repository contains the source code and documentation for the Expatube project.</p>
 
   <h2>Overview</h2>
 
